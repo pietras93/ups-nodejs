@@ -1,6 +1,6 @@
 var ShipConfirm = require('./lib/shipConfirm');
 var ShipAccept = require('./lib/shipAccept');
-var AddressValidation = require('./lib/AddressValidation');
+var AddressValidation = require('./lib/addressValidation');
 var VoidShipment = require('./lib/voidShipment');
 var TimeInTransit = require('./lib/timeInTransit');
 var Rating = require('./lib/rating');
