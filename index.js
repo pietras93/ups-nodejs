@@ -5,6 +5,7 @@ var VoidShipment = require('./lib/voidShipment');
 var TimeInTransit = require('./lib/timeInTransit');
 var Rating = require('./lib/rating');
 var Tracking = require('./lib/tracking');
+var Pickup = require('./lib/pickup');
 
 module.exports = {
   ShipConfirm,
@@ -14,4 +15,5 @@ module.exports = {
   TimeInTransit,
   Rating,
   Tracking,
+  Pickup,
 }
