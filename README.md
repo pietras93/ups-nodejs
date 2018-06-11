@@ -34,6 +34,7 @@ Before we start, you need to have an access to UPS API. Getting access to the UP
 | timeInTransit          | available     |
 | ratingServiceSelection | available     |
 | tracking               | available     |
+| pickup                 | available     |
 
 #### Start Rocking!
 
@@ -310,6 +311,47 @@ The Tracking API gives client applications access to UPS tracking information. W
         }
       });
 
+## 5) Pickup Services
+
+The Pickup API gives client applications access to UPS pickup information. With this service, clients query UPS to determine the time, place and date of scheduled pickup
+
+      pickup.makeRequest({
+             customerContext: options.orderNumber,
+            shipper: {
+              accountNumber: config.ups.accountNumber,
+              countryCode: options.customer.country
+            },
+            pickupDateInfo: {
+              readyTime: options.pickupTime, // HHmm
+              pickupDate: options.pickupDate, // YYYYMMDD
+            },
+            address: {
+              companyName: options.customer.companyName || options.customer.name,
+              name: `${options.customer.name} ${options.customer.surname}`,
+              phoneNumber: options.customer.phoneNumber,
+              address1: options.pickupAddress.street || '',
+              address2: options.pickupAddress.building || '' + " " + options.pickupAddress.appartament || '',
+              address3: options.pickupAddress.instruction || '',
+              city: options.pickupAddress.city,
+              zip: options.pickupAddress.area,
+              isResidentila: options.customer.companyName ? true : false,// Indicates if the pickup address is commercial or residential.
+              country: options.customer.country,
+            },
+            pickupPiece: {
+              serviceCode: '001',
+              quantity: options.items.length || 1,
+              destinationCountryCode: options.customer.country,
+            },
+      }, function(err, data) {
+        if (err) {
+          console.error(err);
+        }
+
+        if (data) {
+          //Enjoy playing the data :)
+          console.log(data);
+        }
+      });
 License
 =======================
 
