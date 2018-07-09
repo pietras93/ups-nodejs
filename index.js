@@ -6,6 +6,7 @@ var TimeInTransit = require('./lib/timeInTransit');
 var Rating = require('./lib/rating');
 var Tracking = require('./lib/tracking');
 var Pickup = require('./lib/pickup');
+var CancelPickup = require('./lib/cancelPickup')
 
 module.exports = {
   ShipConfirm,
@@ -16,4 +17,5 @@ module.exports = {
   Rating,
   Tracking,
   Pickup,
+  CancelPickup,
 }
