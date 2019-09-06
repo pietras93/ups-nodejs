@@ -67,6 +67,7 @@ The process to use the Shipping API consists of two phases, the ship confirm pha
     confirmShipment.makeRequest({
       validate: "nonvalidate",
       shipment: {
+          isDropOff: true,
           description: "Shipment to Philippines",
           shipper: {
             name: "Metro Inc Limited",
